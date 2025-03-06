@@ -216,15 +216,19 @@ public class ShoppingCart {
      * @param productId - The unique identifier of the product to be removed.
      * @param currentUser - The current user who is performing the action.
      */
-    public void removeFromCart(String productId, User currentUser) {
+    public void removeFromCart(String productId, User currentUser ) {
+        boolean found = false;
         for (int i = 0; i < cartItems.size(); i++) {
             if (cartItems.get(i)[0].equals(productId)) {
                 cartItems.remove(i);
-                updateCartTotal(currentUser);
-                return;
+                updateCartTotal(currentUser );
+                found = true;
+                break;
             }
         }
-        System.out.println("Product with ID " + productId + " not found in the cart.");
+        if (!found) {
+            throw new IllegalArgumentException("Product with ID " + productId + " not found in the cart.");
+        }
     }
 
 

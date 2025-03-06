@@ -1,0 +1,15 @@
+# Ignorar arquivos do Eclipse
+.classpath
+.project
+.settings/
+
+# Ignorar binários e classes compiladas
+bin/
+*.class
+
+# Ignorar diretório target do Maven
+target/
+
+# Ignorar arquivos específicos do Maven
+maven-status/
+maven-archiver/
